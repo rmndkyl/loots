@@ -89,6 +89,17 @@ def get_prize():
 
 # Fungsi untuk menjalankan operasi untuk setiap initData
 def process_initdata(init_data):
+        banner = f"""
+    {putih}AUTO {biru}MINING LOOT 
+    
+    {putih}By: {biru}t.me/LayerAirdrop
+    {putih}Github: {biru}@rmndkyl
+    
+    {hijau}Message: {putih}Don't forget to 'git pull' maybe i update the bot !
+        """
+        if len(sys.argv) <= 1:
+            os.system("cls" if os.name == "nt" else "clear")
+        print(banner)    
     # Login
     token = get_user_id_from_init_data(init_data)
     nama = get_nama_from_init_data(init_data)
