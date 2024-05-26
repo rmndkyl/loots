@@ -151,7 +151,7 @@ def main():
             print("\n")
         
         # Delay sebelum membaca ulang file initData
-        time.sleep(0)  # Delay 60 detik sebelum membaca kembali file initData
+        time.sleep(3600)  # Delay 60 detik sebelum membaca kembali file initData
 
 if __name__ == "__main__":
     main()
