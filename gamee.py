@@ -73,7 +73,7 @@ def start_session():
         "jsonrpc": "2.0",
         "id": "miningEvent.startSession",
         "method": "miningEvent.startSession",
-        "params": {"miningEventId": 5}
+        "params": {"miningEventId": 6}
     }
     response = requests.post(url, json=payload, headers=headers)
     return response
