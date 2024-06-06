@@ -12,7 +12,7 @@ headers = {
     "Content-Type": "application/json",
     "Origin": "https://prizes.gamee.com",
     "Referer": "https://prizes.gamee.com/",
-    "X-Install-Uuid": "5dd191d7-1d6d-48fd-afa6-fcd82aba2fa7"
+    "X-Install-Uuid": "17bfefcb-6aaa-4341-bd8b-cd3feb636513"
 }
 
 # Fungsi untuk membaca initData dari file
