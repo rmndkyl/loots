@@ -78,15 +78,6 @@ def start_session():
     response = requests.post(url, json=payload, headers=headers)
     return response
 
-# Fungsi untuk mengambil hadiah
-def get_prize():
-    payload = [
-        {"jsonrpc": "2.0", "id": "dailyReward.claimPrize", "method": "dailyReward.claimPrize", "params": {}},
-        {"jsonrpc": "2.0", "id": "dailyReward.getPrizes", "method": "dailyReward.getPrizes", "params": {}}
-    ]
-    response = requests.post(url, json=payload, headers=headers)
-    return response
-
 # Fungsi untuk menjalankan operasi untuk setiap initData
 def process_initdata(init_data):   
     # Login
@@ -109,36 +100,7 @@ def process_initdata(init_data):
                     print(f"Start session error: {reason}")
                 else:
                     print('Start Mining')
-
-                # Get prize
-                prize_response = get_prize()
-                
-                if prize_response.status_code == 200:
-                    prize_data_list = prize_response.json()
-                    if 'error' in prize_data_list:
-                        reason = prize_data_list["error"].get("message", "No error message provided")
-                        print(f"GetPrize Error message: {reason}")
-                    else:
-                        payload2 = {"jsonrpc": "2.0", "id": "dailyReward.buySpinUsingTickets", "method": "dailyReward.buySpinUsingTickets", "params": {}}
-                        response2 = requests.post(url, json=payload2, headers=headers)
-                        if response2.status_code == 200:
-                            response_json2 = response2.json()
-                            if "error" in response_json2:
-                                error_message = response_json2["error"].get("message", "No error message provided")
-                                print(f"BuySpin Error message: {error_message}")
-                            else:
-                                print("Spin bought successfully.")
-                            
-                else:
-                     print("Failed to retrieve prizes.")
-
-            else:
-                print(f"Failed to start session. Error: {start_response.text}")
-        else:
-            print(f"Failed to login. Error: {login_response.text}")
-    else:
-        print(f"Failed to get user id from initData: {init_data}")
-
+                    
 # Main program
 def main():
     initdata_file = "initdata.txt"
@@ -151,7 +113,7 @@ def main():
             print("\n")
         
         # Delay sebelum membaca ulang file initData
-        time.sleep(600)  # Delay 60 detik sebelum membaca kembali file initData
+        time.sleep(300)  # Delay 60 detik sebelum membaca kembali file initData
 
 if __name__ == "__main__":
     main()
